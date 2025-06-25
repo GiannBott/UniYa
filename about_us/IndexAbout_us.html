@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="IndexAbout_us.css"> 
+    <link rel="icon" type="image" href="/UniYa/multimedia/FaviUniYa.png" />
+
+</head>
+<body>
+
+    <a href="/UniYa/index.html" class="back-button">Volver</a>
+
+    <input checked id="one" name="multiples" type="radio" value="1">
+    <label for="one">1</label>
+
+    <input id="two" name="multiples" type="radio" value="2">
+    <label for="two">2</label>
+
+    <input id="three" name="multiples" type="radio" value="3">
+    <label for="three">3</label>
+
+    <input id="four" name="multiples" type="radio" value="4">
+    <label for="four">4</label>
+
+    <input id="five" name="multiples" type="radio" value="5">
+    <label for="five">5</label>
+
+    <input id="six" name="multiples" type="radio" value="6">
+    <label for="six">6</label>
+
+    <div class="container">
+        <div class="carousel">
+            <img src="/UniYa/multimedia/pngs/DPalomino_slider.png" alt="Landscape 1">
+            <img src="/UniYa/multimedia/pngs/FPecora_slider.png" alt="Landscape 2">
+            <img src="/UniYa/multimedia/pngs/GBotto_slider.png" alt="Landscape 3">
+            <img src="/UniYa/multimedia/pngs/NFaggi_slider.png" alt="Landscape 4">
+            <img src="/UniYa/multimedia/pngs/NVivas_slider.png" alt="Landscape 5">
+            <img src="/UniYa/multimedia/pngs/VBassi_slider.png" alt="Landscape 6">
+        </div>
+        <div class="labels">
+            <a href="/UniYa/about_us/DP/DPalomino.html" class="invisible-label" id="label1"></a>
+            <a href="/UniYa/about_us/FP/FPecora.html" class="invisible-label" id="label2"></a>
+            <a href="/UniYa/about_us/GB/GBotto.html" class="invisible-label" id="label3"></a>
+            <a href="/UniYa/about_us/NF/NFaggi.html" class="invisible-label" id="label4"></a>
+            <a href="/UniYa/about_us/NV/NVivas.html" class="invisible-label" id="label5"></a>
+            <a href="/UniYa/about_us/VB/VBassi.html" class="invisible-label" id="label6"></a>
+        </div>
+    </div>
+
+    <script>
+        const labels = document.querySelectorAll('.invisible-label');
+        const radios = document.querySelectorAll('input[name="multiples"]');
+
+        // Función para manejar el cambio de radio
+        radios.forEach((radio, index) => {
+            radio.addEventListener('change', () => {
+                labels.forEach(label => label.style.display = 'none'); // Ocultar todos los labels
+                labels[index].style.display = 'block'; // Mostrar el label correspondiente
+            });
+        });
+
+        // Inicializa el primer label como visible
+        labels[0].style.display = 'block';
+    </script>
+
+</body>
+
+<footer>
+    
+    
+</footer>
+
+</html>

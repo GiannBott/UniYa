@@ -1,0 +1,33 @@
+body, html {    
+    background-image: url(/UniYa/multimedia/pngs/Backgound_UniYa.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.logo-container {
+    margin-bottom: 2rem; /* Usa rem para una mejor escalabilidad */
+}
+
+.loader {
+    margin-top: 32%;
+    margin-left: 50%;
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #fff;
+    border-radius: 50%;
+    width: 5vw;
+    height: 5vw;
+    max-width: 50px;
+    max-height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+/* Animaci¨®n de la rueda de carga */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

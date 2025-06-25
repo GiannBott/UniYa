@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa; /* Fondo azul claro */
+    color: #003f4f; /* Texto en azul oscuro */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center; /* Centra solo el H1 */
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 5vw;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    color: #018577;
+    transition: all 0.5s ease;
+    user-select: none; 
+}
+
+h1:hover {
+    transform: translate3d(0, -10px, 22px);
+    color: #79c438;
+}
+
+#test {
+    user-select: none;
+    max-width: 600px;
+    margin: 20px auto; /* Centra el formulario sin afectar el H1 */
+    background-color: #ffffff; /* Fondo blanco para el formulario */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between; /* Espacio entre botones */
+    margin-top: 20px; /* Espacio superior para separar los botones del contenido */
+}
+
+button {
+    background-color: #009688; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px; /* Aumentar el padding para mayor tamaño */
+    cursor: pointer;
+    font-size: 16px; /* Aumentar el tamaño de la fuente */
+    flex: 1; /* Esto asegurará que ocupen el mismo espacio */
+    margin: 0 5px; /* Espacio entre botones */
+    max-width: 120px; /* Limitar el ancho máximo de los botones */
+}
+
+button:hover {
+    background-color: #00796b; /* Verde oscuro */
+}
+
+.footer {
+    user-select: none;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    position: fixed; 
+    left: 0;
+    bottom: 0;
+    width: 100%; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white; 
+    text-align: center; 
+    padding: 3px 0; 
+    font-size: 16px; 
+  }
+  
+  .about-button {
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute; 
+    right: 20px; 
+    bottom: 10px; 
+    padding: 10px 15px; 
+    background-color: #d8b749; 
+    color: rgb(0, 0, 0); 
+    text-decoration: none; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
+  }
+  
+  .about-button:hover {
+    background-color: #b38300; 
+  }
+
+  #progressBarContainer {
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    height: 20px;
+    margin: 10px 0;
+}
+
+#progressBar {
+    width: 100%; /* Este debe ser el ancho total */
+    height: 100%;
+    border-radius: 5px;
+    overflow: hidden; /* Para evitar que se desborde */
+}
+
+#progress {
+    width: 0; /* Este se actualizará con JavaScript */
+    height: 100%;
+    background-color: #009688;
+    transition: width 0.3s ease;
+}
+

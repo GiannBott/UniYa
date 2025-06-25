@@ -1,0 +1,173 @@
+body, html {
+    user-select: none;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background-image: url('/UniYa/multimedia/Backgrounds/background_aboutus3.jpg'); /* Ruta de la imagen de fondo */
+    background-size: cover; /* Ajustar la imagen para cubrir todo el fondo */
+    background-position: center; /* Centrar la imagen */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    font-family: Arial, sans-serif; /* Fuente general */
+    text-align: center; /* Centrar el texto y los elementos en el body */
+     margin: 0;
+     padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+
+input[type="radio"] {
+    display: none; /* Ocultar los inputs, pero mantener la funcionalidad */
+}
+
+label {
+    user-select: none;
+
+    cursor: pointer;
+    background: #c5c5c5;
+    display: inline-block;
+    border-radius: 50%;
+    width: 30px;
+    padding-top: 7px;
+    height: 23px;
+    font: 0.9em Arial;
+    margin-top: 7%; /* Margen de 20 píxeles alrededor de cada botón */
+}
+
+label:hover {
+    background: #ddd;
+}
+
+input:checked + label {
+    
+    font-weight: bold;
+    background: #ddd;
+}
+
+.container {
+    user-select: none;
+
+    width: 600px; /* Aumentar el ancho del contenedor */
+    height: 400px; /* Aumentar la altura del contenedor */
+    text-align: left;
+    margin: 20px auto; /* Espacio alrededor del contenedor */
+    perspective: 1000px;
+}
+
+.carousel {
+    user-select: none;
+
+    transform-style: preserve-3d;
+    transform: translateZ(-700px); /* Aumentar la distancia para el efecto 3D */
+    position: relative;
+    margin: 0;
+    width: 600px; /* Aumentar el ancho del carrusel */
+    height: 400px; /* Aumentar la altura del carrusel */
+    transition: transform 1s;
+}
+
+.carousel img {
+    user-select: none;
+
+    position: absolute;
+    border: 5px solid rgba(0, 0, 0, 0.8);
+    opacity: 0.5;
+    transition: opacity 1s, transform 1s;
+    width: 600px; /* Aumentar el ancho de las imágenes */
+    height: 400px; /* Aumentar la altura de las imágenes */
+}
+
+.carousel img:nth-child(1) { transform: translateZ(700px) scale(0.9); }
+.carousel img:nth-child(2) { transform: rotateY(60deg) translateZ(700px) scale(0.9); }
+.carousel img:nth-child(3) { transform: rotateY(120deg) translateZ(700px) scale(0.9); }
+.carousel img:nth-child(4) { transform: rotateY(180deg) translateZ(700px) scale(0.9); }
+.carousel img:nth-child(5) { transform: rotateY(240deg) translateZ(700px) scale(0.9); }
+.carousel img:nth-child(6) { transform: rotateY(300deg) translateZ(700px) scale(0.9); }
+
+/* Transformaciones según el valor del input */
+input[value="1"]:checked ~ .container .carousel { transform: translateZ(-700px); }
+input[value="2"]:checked ~ .container .carousel { transform: translateZ(-700px) rotateY(-60deg); }
+input[value="3"]:checked ~ .container .carousel { transform: translateZ(-700px) rotateY(-120deg); }
+input[value="4"]:checked ~ .container .carousel { transform: translateZ(-700px) rotateY(-180deg); }
+input[value="5"]:checked ~ .container .carousel { transform: translateZ(-700px) rotateY(-240deg); }
+input[value="6"]:checked ~ .container .carousel { transform: translateZ(-700px) rotateY(-300deg); }
+
+input[value="1"]:checked ~ .container .carousel img:nth-child(1) {
+    transform: translateZ(700px) scale(1);
+    opacity: 1;
+}
+input[value="2"]:checked ~ .container .carousel img:nth-child(2) {
+    transform: rotateY(60deg) translateZ(700px) scale(1);
+    opacity: 1;
+}
+input[value="3"]:checked ~ .container .carousel img:nth-child(3) {
+    transform: rotateY(120deg) translateZ(700px) scale(1);
+    opacity: 1;
+}
+input[value="4"]:checked ~ .container .carousel img:nth-child(4) {
+    transform: rotateY(180deg) translateZ(700px) scale(1);
+    opacity: 1;
+}
+input[value="5"]:checked ~ .container .carousel img:nth-child(5) {
+    transform: rotateY(240deg) translateZ(700px) scale(1);
+    opacity: 1;
+}
+input[value="6"]:checked ~ .container .carousel img:nth-child(6) {
+    transform: rotateY(300deg) translateZ(700px) scale(1);
+    opacity: 1;
+}
+
+.labels {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.invisible-label {
+    position: absolute;
+    width: 100%; /* Ocupa el ancho completo */
+    height: 100%; /* Ocupa la altura completa */
+    cursor: pointer;
+    z-index: 2; /* Asegurarte de que esté encima de las imágenes */
+    display: none; /* Por defecto no se muestran */
+}
+
+
+.invisible-label:nth-child(1) { left: 0; top: 0; }
+.invisible-label:nth-child(2) { left: 0; top: 0; }
+.invisible-label:nth-child(3) { left: 0; top: 0; }
+.invisible-label:nth-child(4) { left: 0; top: 0; }
+.invisible-label:nth-child(5) { left: 0; top: 0; }
+.invisible-label:nth-child(6) { left: 0; top: 0; }
+
+/* Ajusta las posiciones según el índice del input seleccionado */
+input[value="1"]:checked ~ .container .labels .invisible-label:nth-child(1) { display: block; }
+input[value="2"]:checked ~ .container .labels .invisible-label:nth-child(2) { display: block; }
+input[value="3"]:checked ~ .container .labels .invisible-label:nth-child(3) { display: block; }
+input[value="4"]:checked ~ .container .labels .invisible-label:nth-child(4) { display: block; }
+input[value="5"]:checked ~ .container .labels .invisible-label:nth-child(5) { display: block; }
+input[value="6"]:checked ~ .container .labels .invisible-label:nth-child(6) { display: block; }
+
+.back-button {
+    text-decoration: none; 
+    user-select: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #6200ea; /* Color de fondo moderno */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 25px; /* Bordes más redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    font-size: 16px; /* Tamaño de fuente */
+    font-weight: bold; /* Texto en negrita */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+}
+
+.back-button:hover {
+    background-color: #3700b3; /* Color al pasar el ratón */
+    transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}

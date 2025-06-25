@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina principal</title>
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="/UniYa/main/main.css">
+    <!-- Enlace a la biblioteca Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Enlace a la biblioteca Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js" defer></script>
+    <!-- Enlace a Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+    <!-- Enlace al archivo JS -->
+    <link rel="icon" type="image" href="/UniYa/multimedia/FaviUniYa.png" />
+
+    <script src="/UniYa/main/main.js" defer></script>
+    <style>
+        /* Aseg��rate de que el contenedor del mapa tenga altura */
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<header>
+    <div class="search-container" style="position: relative;">
+        <input class="animacion" type="text" id="search" placeholder="Buscar...">
+        <div id="autocomplete-list" class="autocomplete-items"></div>
+    </div>
+    <div class="profile-pic">
+        <img src="/UniYa/multimedia/usuario.jpg" alt="Foto de Perfil">
+        <div class="dropdown">
+            <div class="dropdown-content">
+                <button>Invitado</button>
+                <a class="link" href="/UniYa/multimedia/Manual de usuario.pdf"><button> Manual de usuario </button></a>
+
+                <a class="link" href="/UniYa/index.html"><button>Salir</button></a>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<body>
+    <div id="panel" class="panel">
+
+        <div class="categorias">
+
+            <button id="btnDeseleccionar" onclick="deseleccionar()">
+                <img src="/UniYa/multimedia/desseleccionar.png" alt="Deseleccionar">
+            </button>
+
+            <div class="tipos">
+                <label>
+                    <input type="checkbox" id="Pub" onclick="filtCateg(22)">
+                    Publicas
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" id="Priv" onclick="filtCateg(23)">
+                    Privadas
+                </label><br>
+
+            </div>
+        </div>
+        <div class="materias">
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" id="1" onclick="filtCateg(1)">
+                    Ing. Informática
+                </label>
+                <label>
+                    <input type="checkbox" id="4" onclick="filtCateg(4)">
+                    Ing. Electrómecanica
+                </label>
+                <label>
+                    <input type="checkbox" id="5" onclick="filtCateg(5)">
+                    Ing. Mecánica
+                </label>
+                <label>
+                    <input type="checkbox" id="12" onclick="filtCateg(12)">
+                    Ing. Química
+                </label>
+                <label>
+                    <input type="checkbox" id="17" onclick="filtCateg(17)">
+                    Ing. Civil
+                </label>
+
+                <label>
+                    <input type="checkbox" id="3" onclick="filtCateg(3)">
+                    Lic. en Economía
+                </label>
+                <label>
+                    <input type="checkbox" id="15" onclick="filtCateg(15)">
+                    Lic. en Ciencias Biológicas
+                </label>
+                <label>
+                    <input type="checkbox" id="16" onclick="filtCateg(16)">
+                    Lic. en Ciencias Matemáticas
+                </label>
+                <label>
+                    <input type="checkbox" id="8" onclick="filtCateg(8)">
+                    Lic. en Ciencias de la Computación
+                </label>
+                <div class="inner">
+                    <label>
+                        
+                <input type="checkbox" id="2" onclick="filtCateg(2)">
+                Abogacía
+                </label>
+                <label>
+                    <input type="checkbox" id="6" onclick="filtCateg(6)">
+                    Marketing
+                </label>
+                <label>
+                    <input type="checkbox" id="7" onclick="filtCateg(7)">
+                    Contador Público
+                </label>
+                <label>
+                    <input type="checkbox" id="9" onclick="filtCateg(9)">
+                    Ciencia Política
+                </label>
+                <label>
+                    <input type="checkbox" id="10" onclick="filtCateg(10)">
+                    Medicina
+                </label>
+                <label>
+                    <input type="checkbox" id="11" onclick="filtCateg(11)">
+                    Arquitectura
+                </label>
+                <label>
+                    <input type="checkbox" id="13" onclick="filtCateg(13)">
+                    Economía
+                </label>
+                <label>
+                    <input type="checkbox" id="14" onclick="filtCateg(14)">
+                    Psicología
+                </label>
+                <label>
+                    <input type="checkbox" id="18" onclick="filtCateg(18)">
+                    Educación Física
+                </label>
+                <label>
+                    <input type="checkbox" id="19" onclick="filtCateg(19)">
+                    Relaciones Públicas
+                </label>
+                <label>
+                    <input type="checkbox" id="20" onclick="filtCateg(20)">
+                    Comunicación Social
+                </label>
+                <label>
+                    <input type="checkbox" id="21" onclick="filtCateg(21)">
+                    Relaciones Laborales
+                </label>
+            </div>
+        </div>
+    </div>
+    <button id="toggleButton" onclick="togglePanel()"></button>
+    </div>
+
+
+    <div class="container">
+        <div class="left-side">
+            <div id="resultado-container">
+                <div id="mensaje-btn-container">
+                    <button id="BtnCarreras" onclick="window.location.href='/UniYa/main/testvocacional.html'">Ir a
+                        Carreras</button>
+
+                    <span id="mensaje">Test Vocacional:</span>
+                    <button id="toggleResultadoBtn">Mostrar Resultado</button>
+                </div>
+                <div id="resultado" class="resultado-box" style="display: none;"></div>
+            </div>
+            <div class="options">
+                <a href="#" id="option1" class="option-item">Universidad Nacional de la Matanza (UNLAM)</a>
+                <a href="#" id="option2" class="option-item">Universidad Tecnológica Nacional (UTN)</a>
+                <a href="#" id="option3" class="option-item">Universidad Argentina de la Empresa (UADE)</a>
+                <a href="#" id="option17" class="option-item">Universidad Nacional de Códoba (UNC)</a>
+                <a href="#" id="option18" class="option-item">Universidad Nacional de Catamarca (UNCA)</a>
+                <a href="#" id="option19" class="option-item">Universidad del Salvador (USAL) Corrientes</a>
+                <a href="#" id="option20" class="option-item">Universidad Tecnológica Nacional (UTN) Chaco</a>
+                <a href="#" id="option21" class="option-item">Universidad Nacional del Chaco Austral (UNCAUS)</a>
+                <a href="#" id="option22" class="option-item">Universidad Nacional de la Patagonia (UNP)</a>
+                <a href="#" id="option23" class="option-item">Universidad Autónoma de Entre Ríos (UADER)</a>
+                <a href="#" id="option24" class="option-item">Universidad Nacional de Jujuy (UNJU)</a>
+                <a href="#" id="option25" class="option-item">Universidad Nacional de La Pampa (UNLPAM)</a>
+                <a href="#" id="option26" class="option-item">Universidad Nacional de La Rioja (UNLAR)</a>
+                <a href="#" id="option27" class="option-item">Universidad Nacional de Misiones (UNAM)</a>
+
+                <label href="#" id="UBA" class="option-item">Universidad de Buenos Aires (UBA)<div class="medio">
+                        <a href="#" id="option4" class="option-item">Facultad de derecho</a><br>
+                        <a href="#" id="option13" class="option-item">Facultad de Ingeniería</a><br>
+                        <a href="#" id="option14" class="option-item">Facultad de Arquitectura, Diseño y
+                            Urbanismo</a><br>
+                        <a href="#" id="option15" class="option-item">Facultad de Ciencias Económicas</a><br>
+                        <a href="#" id="option16" class="option-item">Facultad de Biologia</a><br>
+                    </div>
+                </label><a href="#" id="option5" class="option-item">Universidad Austral</a>
+                <a href="#" id="option6" class="option-item">Universidad de Moron</a>
+                <label id="sedeshurli" class="option-item">Universidad Nacional de Hurlingham<div class="medio">
+                        <a href="#" id="option7" class="option-item">Sede 1</a><br>
+                        <a href="#" id="option10" class="option-item">Sede 2</a><br>
+                    </div></label>
+                <a href="#" id="option8" class="option-item">Universidad Nacional del Oeste</a>
+                <label href="#" id="sedesuai" class="option-item">Universidad Abierta Interamericana
+                    <div class="medio">
+                        <a href="#" id="option9" class="option-item">Sede 1</a><br>
+                        <a href="#" id="option11" class="option-item">Sede 2</a><br>
+                        <a href="#" id="option12" class="option-item">Sede 3</a><br>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="right-side">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,604 @@
+/* Estilos para el header y la barra de búsqueda */
+header {
+  background-color: rgba(79, 93, 115, 1);
+  padding: 10px;
+  border-bottom: 1px solid rgba(79, 93, 115, 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Coloca el contenido del header a los extremos */
+}
+
+.search-container {
+  position: relative; /* Asegura que el listado desplegable esté posicionado correctamente en relación con el campo de búsqueda */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px; /* Ancho máximo reducido para la barra de búsqueda */
+}
+
+.search-container input[type="text"] {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.search-container button {
+  padding: 5px 10px;
+  border: none;
+  background-color: rgba(79, 93, 115, 1);
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px; /* Espacio entre el campo de búsqueda y el botón */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+ 
+}
+
+header {
+  grid-row: 1;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 2fr 2fr; /* Ajusta las proporciones si es necesario */
+  grid-row: 2;
+}
+
+.left-side {
+  padding: 32px;
+    background-image: url(/multimedia/FondoImagen1.jpg);
+    background-size: cover;
+    background-color: rgb(199, 231, 243);
+    overflow-y: scroll;
+    max-height: 100vh;
+}
+
+.right-side {
+  background-color: rgb(52, 99, 168); /* Color de fondo opcional para distinguir la parte derecha */
+  z-index: 0;
+}
+
+
+
+#search {
+  background: #fff;
+  border: 2px solid #fff;
+  padding: 16px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  text-align: left;
+  color: grey;
+  width: 100%;
+}
+
+/* Estilos para el perfil */
+.profile-pic {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.profile-pic img {
+  border-radius: 50%;
+  width: 50px; /* Ajusta el tamaño según tus necesidades */
+  height: 50px; /* Ajusta el tamaño según tus necesidades */
+  display: block;
+  cursor: pointer;
+}
+
+
+
+/* Filtro desplegable */
+.filter {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  left: 15px;
+  padding: 0px;
+  top: 10px;
+}
+
+/* Opciones filtrables */
+.option-item {
+  display: none; /* Oculta todas las opciones inicialmente */
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+
+.option-item:hover {
+  background-color: #e9ecef; /* Fondo claro al pasar el ratón */
+  color: #0056b3; /* Color de texto al pasar el ratón */
+  
+}
+
+.option-item.active {
+  display: block; /* Muestra solo las opciones activas */
+}
+
+/* Listado desplegable de opciones de búsqueda */
+.autocomplete-items {
+  position: absolute;
+  top: 100%; /* Coloca el listado justo debajo del campo de búsqueda */
+  left: 0;
+  right: 0;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99; /* Asegura que el listado esté sobre otros elementos */
+  background-color: #fff;
+  cursor: pointer;
+  z-index: 10000;
+  width: calc(100% - 2px); /* Asegura que el listado tenga el mismo ancho que el campo de búsqueda */
+  max-height: 150px; /* Ajusta la altura máxima según sea necesario */
+  overflow-y: auto; /* Agrega una barra de desplazamiento si el contenido excede la altura */
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+  background-color: #e9e9e9;
+  color: #000;
+}
+
+/* lista deplegable de perfil*/
+
+  .dropdown {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    left: -100px; /* Ajusta este valor según el ancho de los botones */
+    top: 50%;
+    transform: translateY(10%);
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease, left 0.5s ease;
+  }
+  
+  .dropdown-content button {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  .dropdown-content button:hover {
+    background-color: #ddd;
+  }
+  
+  .profile-pic:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    left: -150px; /* Ajusta este valor según el ancho de los botones */
+  }
+
+
+/* Estilo general para el contenedor de categorías */
+.categorias {
+  padding: 5px;
+  background-color: #d1d1d1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 77px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo para el contenedor de tipos */
+.tipos {
+  font-family: Arial, sans-serif;
+    color: #333;
+    display: flex;
+    gap: 11px;
+    align-items: center;
+  
+}
+/* Estilo para el título de tipos */
+ph {
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* Estilo para las etiquetas de los checkboxes */
+label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  font-size: 1em;
+  color: #555;
+}
+
+/* Estilo para los checkboxes */
+input[type="checkbox"] {
+  accent-color: #007bff; /* Color del checkmark en el navegador que lo soporta */
+  width: 20px; /* Tamaño del checkbox */
+  height: 20px;
+  margin-right: 10px; /* Espacio entre el checkbox y el texto */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el checkbox */
+}
+
+/* Estilo para el texto al lado del checkbox */
+label span {
+  font-size: 1em;
+}
+
+/* Efecto al pasar el ratón sobre el label */
+label:hover {
+  background-color: #e9ecef;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+
+/* Estilos generales para el contenedor de opciones */
+.options {
+  padding: 20px;
+  background-color: #f8f9fa; /* Color de fondo más claro para el contenedor */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px; /* Ajusta el ancho máximo del contenedor */
+  margin: 20px auto; /* Centra el contenedor horizontalmente */
+}
+
+/* Estilos para los elementos de opción */
+.option-item {
+  text-decoration: none;
+  color: #007BFF; /* Color de texto inicial */
+  font-size: 18px;
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 4px; /* Bordes redondeados para los elementos */
+  transition: all 0.3s ease; /* Transición suave para todos los cambios */
+  position: relative;
+  background-color: #ffffff; /* Fondo blanco para cada opción */
+}
+
+/* Efecto de sombra y cambio de color al pasar el ratón */
+.option-item:hover {
+  text-decoration: none; /* Mantiene el texto sin subrayar en hover */
+  color: #0056b3; /* Color de texto al pasar el ratón */
+  background-color: #e9ecef; /* Fondo gris claro al pasar el ratón */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Sombra más suave */
+}
+
+/* Estilo para los elementos activos */
+.option-item.active {
+  color: #28A745; /* Color verde para los elementos activos */
+  font-weight: bold;
+  background-color: #e8f5e9; /* Fondo verde claro para el elemento activo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+/* Efecto adicional de animación para el borde inferior */
+.option-item::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  background-color: #007BFF; /* Color de la línea debajo del texto */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+/* Animación de la línea debajo del texto en hover */
+.option-item:hover::after {
+  width: 100%; /* La línea se expande en hover */
+}
+
+:root {
+  --sb-track-color: #ffffff;
+  --sb-thumb-color: #7eeae1;
+  --sb-size: 14px;
+}
+
+/* Estilos para la barra de desplazamiento en WebKit */
+body {
+  scrollbar-width: thin; /* Para navegadores que soportan scrollbar-color */
+  scrollbar-color: var(--sb-thumb-color) var(--sb-track-color); /* Estilo de la scrollbar */
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size); /* Ancho de la scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color); /* Color del track */
+  border-radius: 3px; /* Bordes redondeados */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color); /* Color del thumb */
+  border-radius: 3px; /* Bordes redondeados */
+}
+ 
+#map{
+  width: 100%;
+  height: 86%;
+}
+
+/* Estilo para el contenedor del select */
+.select-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Espacio debajo del select */
+}
+
+/* Estilo para el select */
+select {
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1em; 
+  color: #555;
+  background-color: #fff;
+  cursor: pointer; 
+}
+
+select:focus {
+  outline: none;
+  border-color: #007bff; 
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+}
+
+option {
+  padding: 10px;
+  font-size: 1em;
+}
+
+/*--testvocacional-- */
+#resultado-container {
+  display: flex;
+  flex-direction: column; /* Cambia la dirección a columna */
+  align-items: flex-start; /* Alinea los elementos a la izquierda */
+}
+
+#mensaje-btn-container {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 97%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#mensaje {
+  margin-right: 10px; /* Espacio entre el mensaje y el botón */
+  margin-left: 10px;
+  font-weight: bold; /* Hace que el texto sea en negrita */
+  font-size: 20px; /* Tamaño de la fuente */
+  color: #333; /* Color del texto */
+}
+
+button#toggleResultadoBtn {
+  background-color: #007bff;      /* Azul claro */
+  color: white;                   /* Texto blanco */
+  padding: 15px;             /* Espaciado interno más amplio */
+  font-size: 13px;                /* Tamaño del texto más grande */
+  font-weight: bold;              /* Texto en negrita */
+  border: none;                   /* Sin borde */
+  border-radius: 50px;            /* Bordes completamente redondeados */
+  cursor: pointer;                /* Cambiar el cursor al pasar por encima */
+  box-shadow: 0px 8px 15px rgba(0, 123, 255, 0.3); /* Sombra */
+  transition: all 0.3s ease;      /* Suave animación al pasar el cursor */
+  text-transform: uppercase;      /* Texto en mayúsculas */
+  letter-spacing: 2px;   
+}
+
+button#toggleResultadoBtn:hover {
+  background-color: #0056b3;      /* Azul más oscuro al pasar el cursor */
+  box-shadow: 0px 15px 20px rgba(0, 123, 255, 0.4); /* Sombra más grande */
+  transform: translateY(-5px);
+}
+button#BtnCarreras {
+  background-color: #007bff;      /* Azul claro */
+  color: white;                   /* Texto blanco */
+  padding: 15px;             /* Espaciado interno más amplio */
+  font-size: 13px;                /* Tamaño del texto más grande */
+  font-weight: bold;              /* Texto en negrita */
+  border: none;                   /* Sin borde */
+  border-radius: 50px;            /* Bordes completamente redondeados */
+  cursor: pointer;                /* Cambiar el cursor al pasar por encima */
+  box-shadow: 0px 8px 15px rgba(0, 123, 255, 0.3); /* Sombra */
+  transition: all 0.3s ease;      /* Suave animación al pasar el cursor */
+  text-transform: uppercase;      /* Texto en mayúsculas */
+  letter-spacing: 2px;   
+}
+
+button#BtnCarreras:hover {
+  background-color: #0056b3;      /* Azul más oscuro al pasar el cursor */
+  box-shadow: 0px 15px 20px rgba(0, 123, 255, 0.4); /* Sombra más grande */
+  transform: translateY(-5px);
+}
+
+
+
+.resultado-box {
+    background-color: #e0f7e0;
+    border: 2px solid #a3dca3;
+    padding: 20px;
+    border-radius: 10px;
+    color: #333;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 5px auto; /* Centra verticalmente y horizontalmente */
+    max-width: 80%; /* Establece un ancho máximo para el div */
+}
+
+/*///filtros desplegables desde izq//*/
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.panel {
+  width: 334px;
+  height: 100%;
+  background-color: #ffffff;
+  color: #333;
+  position: fixed;
+  top: 73px;
+  left: -310px;
+  transition: left 0.5s ease, box-shadow 0.5s ease;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+.panel.active {
+  left: 0;
+  overflow-y: scroll;
+  direction: rtl;
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#toggleButton {
+  padding: 7%;
+  font-size: 24px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 45%; /* Ajuste desde la parte superior */
+  right: -7%; /* Ajuste desde la derecha */
+  border-radius: 50%; /* Botón redondeado */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#toggleButton:hover {
+  background-color: #e64a19; /* Color al pasar el mouse */
+  transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+}
+
+.content {
+  max-height: calc(100% - 80px); /* Espacio para el botón y el pie de página */
+  overflow-y: auto; /* Permitir el desplazamiento solo dentro de este contenedor */
+}
+
+.menu {
+  list-style: none; /* Eliminar viñetas de la lista */
+  padding: 0; /* Sin padding */
+}
+
+.menu li {
+  margin: 20px 0; /* Espacio entre los elementos del menú */
+}
+
+.menu a {
+  text-decoration: none; /* Sin subrayado */
+  color: #333; /* Color del texto */
+  padding: 12px 20px;
+  display: block; /* Hacer que el enlace ocupe todo el ancho */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s, transform 0.3s; /* Transición para el color de fondo */
+}
+
+.menu a:hover {
+  background-color: #e0e0e0; /* Color de fondo al pasar el mouse */
+  transform: translateX(5px); /* Desplazamiento al pasar el mouse */
+}
+
+.footer {
+  margin-top: auto; /* Empuja el pie de página hacia abajo */
+  text-align: center; /* Centrar el texto */
+  font-size: 14px; /* Tamaño de fuente más pequeño */
+  color: #777; /* Color gris */
+}
+
+.checkbox-group {
+  position: absolute;
+  right: 7%; /* Ajuste desde la derecha */
+}
+
+.link{
+    color: red;
+    text-decoration: none;
+    font-weight: bolder;
+
+}
+
+.link:hover{
+    color: red;
+    text-decoration: underline;
+    font-weight: bolder;
+
+}
+
+.link:active{
+    
+    color: red;
+    text-decoration: underline;    
+    font-weight: bolder;
+
+}
+
+/*//////////btn desselection ////*/
+#btnDeseleccionar {
+  display: block;
+  width: 37px;
+  height: 50px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.3s;
+}
+
+#btnDeseleccionar:hover {
+  transform: rotate(180deg);
+  /* Rota la imagen 180 grados al pasar el mouse */
+}
+
+#btnDeseleccionar img {
+  width: 100%;
+  height: auto;
+}
+.inner {
+  width: 100%;
+  height: 550px;
+}
+
